@@ -1,7 +1,10 @@
+import io.gitlab.arturbosch.detekt.Detekt
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.arturbosch.detekt)
 }
 
 android {
@@ -37,9 +40,51 @@ android {
     buildFeatures {
         compose = true
     }
+
+    lint {
+        lintConfig = file("$rootDir/config/lint.xml")
+        htmlReport = true
+        htmlOutput = layout.buildDirectory.file("reports/lint/lint.html").get().asFile
+
+        ignoreTestSources = true
+        abortOnError = false
+    }
+}
+
+detekt {
+    toolVersion = "1.23.8"
+    config.setFrom(file("$rootDir/config/detekt.yml"))
+    buildUponDefaultConfig = false
+    autoCorrect = false
+}
+
+tasks.withType<Detekt>().configureEach {
+    reports {
+        html.required.set(true)
+    }
+}
+
+tasks.named("lint") {
+    outputs.upToDateWhen { false }
+}
+
+tasks.named("detekt") {
+    dependsOn("lint")
+    finalizedBy("printReports")
+}
+
+tasks.register("printReports") {
+    doLast {
+        val lintReport = layout.buildDirectory.file("reports/lint/lint.html").get().asFile
+        val detektReport = layout.buildDirectory.file("reports/detekt/detekt.html").get().asFile
+
+        println("Lint Report: file://${lintReport.absolutePath}")
+        println("Detekt Report: file://${detektReport.absolutePath}")
+    }
 }
 
 dependencies {
+    detektPlugins(libs.detekt.formatting)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
