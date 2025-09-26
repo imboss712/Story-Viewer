@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.StoryViewer" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- Allows us to override night specific attributes in the
+     values-night folder. -->
+    <style name="NightAdjusted.Theme.StoryViewer" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <!-- The final theme we use -->
+    <style name="Theme.StoryViewer" parent="NightAdjusted.Theme.StoryViewer">
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+
+    <style name="NightAdjusted.Theme.Splash" parent="Theme.SplashScreen">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="windowSplashScreenBackground">@color/splash_background</item>
+    </style>
+
+    <style name="Theme.StoryViewer.Splash" parent="NightAdjusted.Theme.Splash">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash</item>
+        <item name="postSplashScreenTheme">@style/Theme.StoryViewer</item>
+    </style>
 </resources>
