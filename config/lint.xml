@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="HardcodedText" severity="error" />
+    <issue id="ContentDescription" severity="warning" />
+    <issue id="MissingTranslation" severity="ignore" />
+
+    <issue id="UnusedResources" severity="warning" />
+    <issue id="UnusedIds" severity="warning" />
+    <issue id="ObsoleteLayoutParam" severity="warning" />
+
+    <issue id="InefficientWeight" severity="warning" />
+    <issue id="WrongViewCast" severity="error" />
+
+    <issue id="AllowBackup" severity="error" />
+    <issue id="ExportedReceiver" severity="error" />
+    <issue id="ExportedService" severity="error" />
+
+    <issue id="GradleDependency" severity="warning" />
+
+    <issue id="LogConditional" severity="ignore" />
+
+    <issue id="StopShip" severity="error" />
+</lint>
