@@ -1,4 +1,4 @@
-package com.materna.storyviewer.ui.theme
+package com.materna.storyviewer.presentation.theme
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color

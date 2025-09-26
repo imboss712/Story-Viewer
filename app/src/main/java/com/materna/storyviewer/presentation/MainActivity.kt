@@ -26,7 +26,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.materna.storyviewer.presentation.util.isSystemInDarkTheme
-import com.materna.storyviewer.ui.theme.StoryViewerTheme
+import com.materna.storyviewer.presentation.theme.StoryViewerTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch

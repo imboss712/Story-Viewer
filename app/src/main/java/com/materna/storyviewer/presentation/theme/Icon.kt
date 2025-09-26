@@ -1,4 +1,4 @@
-package com.materna.storyviewer.ui.theme
+package com.materna.storyviewer.presentation.theme
 
 import androidx.annotation.DrawableRes
 import com.materna.storyviewer.R
