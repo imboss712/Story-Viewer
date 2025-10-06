@@ -1,5 +1,6 @@
 package com.materna.storyviewer.presentation.navigation
 
+import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,6 +15,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.materna.storyviewer.presentation.theme.StoryViewerTheme
+import com.materna.storyviewer.presentation.ui.auth.DisclaimerScreen
 
 @Composable
 fun StoryViewerNavHost(
@@ -40,14 +42,12 @@ fun NavGraphBuilder.authGraph(navController: NavController) {
         startDestination = Route.DisclaimerScreen
     ) {
         composable<Route.DisclaimerScreen> {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(StoryViewerTheme.colorScheme.backgroundColor),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(text = "Disclaimer screen")
-            }
+            val activity = LocalActivity.current
+
+            DisclaimerScreen(
+                onBackClick = { activity?.finish() },
+                onUnderstandClick = { navController.navigate(Route.StoriesFeedScreen) }
+            )
         }
     }
 }

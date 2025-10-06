@@ -6,4 +6,6 @@ import com.materna.storyviewer.R
 object StoryViewerIcon {
     @DrawableRes
     val Settings = R.drawable.settings
+    @DrawableRes
+    val Warning = R.drawable.warning
 }
