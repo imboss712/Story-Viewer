@@ -10,4 +10,6 @@ object StoryViewerIcon {
     val Warning = R.drawable.warning
     @DrawableRes
     val Folder = R.drawable.folder
+    @DrawableRes
+    val Apps = R.drawable.apps
 }
