@@ -12,4 +12,8 @@ object StoryViewerIcon {
     val Folder = R.drawable.folder
     @DrawableRes
     val Apps = R.drawable.apps
+    @DrawableRes
+    val Info = R.drawable.info
+    @DrawableRes
+    val LightBulb = R.drawable.lightbulb
 }
